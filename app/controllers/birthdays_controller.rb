@@ -1,4 +1,5 @@
 class BirthdaysController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_birthday, only: [:show, :edit, :update, :destroy]
 
   # GET /birthdays
@@ -25,7 +26,7 @@ class BirthdaysController < ApplicationController
   # POST /birthdays.json
   def create
     @birthday = Birthday.new(birthday_params)
-
+    @birthday.user_id = current_user.id
     respond_to do |format|
       if @birthday.save
         format.html { redirect_to @birthday, notice: 'Birthday was successfully created.' }
@@ -69,6 +70,6 @@ class BirthdaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def birthday_params
-      params[:birthday]
+      params.require(:birthday).permit(:name, :date)
     end
 end
