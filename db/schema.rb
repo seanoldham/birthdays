@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216212550) do
+ActiveRecord::Schema.define(version: 20150216214026) do
 
   create_table "birthdays", force: :cascade do |t|
-    t.datetime "birthday"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "date",       null: false
   end
 
   add_index "birthdays", ["user_id"], name: "index_birthdays_on_user_id"
