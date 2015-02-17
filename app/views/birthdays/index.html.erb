@@ -3,10 +3,10 @@
   <tbody>
     <% @birthdays.each do |birthday| %>
       <tr>
-        <td class="col-md-3" id="bday-name"><%= birthday.name %></td>
-        <td class="col-md-3" id="bday-age"> is <%= (Date.today.to_s(:number).to_i - birthday.date.to_date.to_s(:number).to_i)/1e4.to_i %> years old</td>
-        <td class="col-md-3" id="bday-edit"><%= link_to 'Edit', edit_birthday_path(birthday) %></td>
-        <td class="col-md-3" id="bday-delete"><%= link_to 'Delete', birthday, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="col-lg-2 col-md-3" id="bday-name"><%= birthday.name %></td>
+        <td class="col-lg-2 col-md-3" id="bday-age"> is <%= (Date.today.to_s(:number).to_i - birthday.date.to_date.to_s(:number).to_i)/1e4.to_i %> years old</td>
+        <td class="col-lg-1 col-md-3" id="bday-edit"><%= link_to 'Edit', edit_birthday_path(birthday) %></td>
+        <td class="col-lg-1 col-md-3" id="bday-delete"><%= link_to 'Delete', birthday, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><hr/></td>
       </tr>
     <% end %>
