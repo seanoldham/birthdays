@@ -6,10 +6,6 @@ class BirthdaysController < ApplicationController
   def index
     user_id = User.find(current_user)
     @birthdays = user_id.birthdays
-    @birthdays.each do |b|
-      now = Time.now.utc.to_date
-      @age = now.year - b.date.year - ((now.month > b.date.month || (now.month == b.date.month && now.day >= b.date.day)) ? 0 : 1)
-    end
   end
 
   # GET /birthdays/1

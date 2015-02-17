@@ -1,3 +1,23 @@
 // Place all the styles related to the birthdays controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#bday-name {
+  font-size: 2.2em;
+}
+#bday-age {
+  font-size: 1.5em;
+}
+#bday-edit {
+  font-size: 0.8em;
+}
+#bday-delete {
+  font-size: 0.8em;
+}
+#bday-edit :hover {
+  text-decoration: none;
+  background-color: transparent;
+}
+#bday-delete :hover {
+  text-decoration: none;
+  background-color: transparent; 
+}
