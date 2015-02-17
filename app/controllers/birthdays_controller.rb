@@ -3,13 +3,16 @@ class BirthdaysController < ApplicationController
   before_action :set_birthday, only: [:show, :edit, :update, :destroy]
 
   # GET /birthdays
-  # GET /birthdays.json
   def index
-    @birthdays = Birthday.all
+    user_id = User.find(current_user)
+    @birthdays = user_id.birthdays
+    @birthdays.each do |b|
+      now = Time.now.utc.to_date
+      @age = now.year - b.date.year - ((now.month > b.date.month || (now.month == b.date.month && now.day >= b.date.day)) ? 0 : 1)
+    end
   end
 
   # GET /birthdays/1
-  # GET /birthdays/1.json
   def show
   end
 
@@ -23,7 +26,6 @@ class BirthdaysController < ApplicationController
   end
 
   # POST /birthdays
-  # POST /birthdays.json
   def create
     @birthday = Birthday.new(birthday_params)
     @birthday.user_id = current_user.id
@@ -39,7 +41,6 @@ class BirthdaysController < ApplicationController
   end
 
   # PATCH/PUT /birthdays/1
-  # PATCH/PUT /birthdays/1.json
   def update
     respond_to do |format|
       if @birthday.update(birthday_params)
@@ -53,7 +54,6 @@ class BirthdaysController < ApplicationController
   end
 
   # DELETE /birthdays/1
-  # DELETE /birthdays/1.json
   def destroy
     @birthday.destroy
     respond_to do |format|
