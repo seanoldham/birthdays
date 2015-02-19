@@ -1,16 +1,38 @@
-<div class="row">
-  <div class="small-12 large-2 columns"><h2>Sign In</h2></div>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field small-12 large-4 columns">
-      <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+<h1>Birthdays 🎉</h1>
+<div class="center row">
+  <div class="small-11 large-6 small-centered large-centered columns">
+    <div class="panel radius">
+      <div class="row">
+        <h3 class="subheader">Log In</h3>
+      </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="row">
+          <div class="field small-12 columns">
+            <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field small-12 columns">
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="actions small-12 columns">
+            <%= f.submit "Log In", :class => "button expand radius" %>
+          </div>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="columns">
+          New to Birthdays? <%= link_to "Sign Up", new_user_registration_path %>
+        </div>
+      </div>
+      <!-- <hr>
+      <div class="row">
+        <div class="columns">
+          <%= link_to "Forgot Password?", new_user_registration_path %>
+        </div>
+      </div> -->
     </div>
-
-    <div class="field small-12 large-4 columns">
-      <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
-    </div>
-
-    <div class="actions small-12 large-2 columns">
-      <%= f.submit "Log in", :class => "button expand secondary" %>
-    </div>
-  <% end %>
+  </div>
 </div>
