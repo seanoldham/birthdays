@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
   resources :birthdays
 
   resources :users
@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
-
+  root 'birthdays#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
