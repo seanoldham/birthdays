@@ -19,3 +19,39 @@
 body {
   font-family: 'Oxygen', sans-serif;
 }
+.bg {
+  background: url('colors.jpg') no-repeat center;
+  background-size: cover;
+}
+#bday-name {
+  font-size: 3em;
+  color: #336699;
+  line-height: 1.3em;
+}
+#bday-age {
+  font-size: 1.5em;
+  line-height: 1.2em;
+}
+.bday-link {
+  font-size: 0.8em;
+}
+.bday-link :hover {
+  text-decoration: none;
+  background-color: transparent;
+}
+h1 {
+  font-family: 'Oxygen', sans-serif;
+  text-align: center;
+  margin: 20px;
+}
+.panel {
+  background-color: transparent !important;
+  border-radius: 10px !important;
+  border-width: 0 !important;
+  text-align: center;
+}
+.translucent {
+  zoom: 1;
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+}

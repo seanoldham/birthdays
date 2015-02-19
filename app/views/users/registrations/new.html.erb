@@ -3,22 +3,22 @@
   <div class="small-11 large-6 small-centered large-centered columns">
     <div class="panel radius">
       <div class="row">
-        <h3 class="subheader">Sign Up</h3>
+        <h3 class="subheader translucent">Sign Up</h3>
       </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <div class="row">
-          <div class="field small-12 columns">
+          <div class="field small-12 columns translucent">
             <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
           </div>
         </div>
         <div class="row">
-          <div class="field small-12 columns">
-            <%= f.password_field :password, autocomplete: "off", placeholder: "Password (8 characters minimum)" %>
+          <div class="field small-12 columns translucent">
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Password (8 characters min)" %>
           </div>
         </div>
         <div class="row">
-          <div class="field small-12 columns">
+          <div class="field small-12 columns translucent">
             <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password" %>
           </div>
         </div>
@@ -29,7 +29,7 @@
         </div>
       <% end %>
       <div class="row">
-        <div class="columns">
+        <div class="columns translucent">
           Already have an account? <%= link_to "Log In", new_user_session_path %>
         </div>
       </div>
