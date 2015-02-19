@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
     <title><%= content_for?(:title) ? yield(:title) : "Birthdays" %></title>
 
     <%= stylesheet_link_tag    "application" %>
@@ -13,8 +12,10 @@
   </head>
 
   <body>
-    <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :class => "alert-box #{name}" %>
+    <% if notice or alert %>
+      <div class="row">
+        <%= custom_flash %>
+      </div>
     <% end %>
     <%= yield %>
   </body>

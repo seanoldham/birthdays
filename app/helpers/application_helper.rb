@@ -1,5 +1,15 @@
 module ApplicationHelper
-  def time_ago time, append = ' old'
-    return time_ago_in_words(time).gsub(/about|less than|almost|over/, '').strip << append
+  #for nice notifications with toastr
+  def custom_flash
+    flash_messages = []
+    flash.each do |type, message|
+      type = 'success' if type == 'notice'
+      type = 'error'   if type == 'alert'
+      puts type
+
+      text = "<script>toastr.#{type}('#{message}');</script>"
+      flash_messages << text.html_safe if message
+    end
+    flash_messages.join("\n").html_safe
   end
 end
