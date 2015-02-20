@@ -155,7 +155,7 @@ success: 'toast-success',
 warning: 'toast-warning'
 },
 iconClass: 'toast-info',
-positionClass: 'toast-top-full-width',
+positionClass: 'toast-bottom-full-width',
 timeOut: 10000, // Set timeOut and extendedTimeOut to 0 to make it sticky
 titleClass: 'toast-title',
 messageClass: 'toast-message',
