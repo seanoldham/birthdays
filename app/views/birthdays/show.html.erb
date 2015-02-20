@@ -1,4 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_birthday_path(@birthday) %> |
-<%= link_to 'Back', birthdays_path %>
+<div class="center row">
+  <div class="small-11 large-6 small-centered large-centered columns">
+    <div class="panel radius">
+      <div class="row">
+        <div class="small-12 columns" id="bday-name"><%= @birthday.name %></div>
+      </div>
+      <div class="row">
+        <br><div class="small-12 columns" id="bday-age"><%= @birthday.date.strftime("%B %e, %Y") %></div>
+      </div>
+      <div class="row">
+        <div class="columns translucent panel-footer">
+          <br><%= link_to 'Edit', edit_birthday_path(@birthday) %> |
+<%= link_to 'Delete', @birthday, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', birthdays_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

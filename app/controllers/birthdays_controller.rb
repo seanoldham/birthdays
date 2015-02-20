@@ -10,6 +10,8 @@ class BirthdaysController < ApplicationController
 
   # GET /birthdays/1
   def show
+    user_id = User.find(current_user)
+    @birthdays = user_id.birthdays
   end
 
   # GET /birthdays/new

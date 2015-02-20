@@ -1,18 +1,23 @@
-<div class="row">
-  <% @birthdays.each do |birthday| %>
-    <div class="row">
-      <div class="small-12 columns" id="bday-name"><%= birthday.name %></div>
-      <div class="small-12 columns" id="bday-age"> is <%= (Date.today.to_s(:number).to_i - birthday.date.to_date.to_s(:number).to_i)/1e4.to_i %> years old</div>
-      <div class="small-12 columns bday-link"><%= link_to 'Edit', edit_birthday_path(birthday) %> | <%= link_to 'Delete', birthday, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+<!-- <h1>Birthdays 🎉</h1> -->
+<div class="center row">
+  <div class="small-11 large-6 small-centered large-centered columns">
+    <div class="panel radius">
+      <% @birthdays.each do |birthday| %>
+        <div class="row">
+          <div class="small-12 columns" id="bday-name"><%= link_to birthday.name, birthday_path(birthday) %></div>
+          <div class="small-12 columns" id="bday-age"> is <%= (Date.today.to_s(:number).to_i - birthday.date.to_date.to_s(:number).to_i)/1e4.to_i %> years old</div>
+        </div>
+      <% end %>
+      <div class="row">
+        <% if @birthdays.count > 0 %>
+          <br><h4><%= link_to 'Add Another Birthday', new_birthday_path %></h4>
+        <% else %>
+          <h2><%= link_to 'Add Birthday', new_birthday_path %></h2>
+        <% end %>
+      </div>
+      <div class="row">
+        <br><hr><br><h5><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></h5>
+      </div>
     </div>
-  <% end %>
-  <br>
-  <h4><%= link_to 'Add A Birthday', new_birthday_path %></h4>
-  <% if user_signed_in? %>
-    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign in", new_user_session_path %>
-    <br>
-    <%= link_to "Register", new_user_registration_path %>
-  <% end %>
+  </div>
 </div>

@@ -20,7 +20,10 @@ body {
   font-family: 'Oxygen', sans-serif;
 }
 .bg {
-  background: url('colors.jpg') no-repeat center;
+  background: url('colors.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 #bday-name {
@@ -43,12 +46,15 @@ h1 {
   font-family: 'Oxygen', sans-serif;
   text-align: center;
   margin: 20px;
+  color: #444;
 }
 .panel {
   background-color: transparent !important;
-  border-radius: 10px !important;
   border-width: 0 !important;
   text-align: center;
+}
+.panel-footer {
+  font-size: 0.9em;
 }
 .translucent {
   zoom: 1;
